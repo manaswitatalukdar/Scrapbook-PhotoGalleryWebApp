@@ -1,12 +1,12 @@
 import React from "react";
 import "../App.css";
-import { Slide } from "react-slideshow-image";
+import { Fade } from "react-slideshow-image";
 import "react-slideshow-image/dist/styles.css";
 
 function Carousel() {
   return (
     <div className="Slides">
-      <Slide>
+      <Fade>
         <div className="slide1">
           <div style={{ height: `600px` }}></div>
         </div>
@@ -18,7 +18,7 @@ function Carousel() {
         <div className="slide3">
           <div style={{ height: `600px` }}></div>
         </div>
-      </Slide>
+      </Fade>
     </div>
   );
 }
