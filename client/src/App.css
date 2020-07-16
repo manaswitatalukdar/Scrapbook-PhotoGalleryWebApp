@@ -3,6 +3,14 @@
   background-size: cover;
 }
 
+.home {
+  background-image: url(images/laptop.jpeg);
+  background-position: center;
+  background-size: cover;
+  height: 600px;
+  text-align: center;
+}
+
 .menuList {
   padding: 16px;
   color: black;
@@ -69,4 +77,17 @@
   font-family: Lato, sans-serif;
   font-size: 1.5rem;
   height: 300px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.submitBtn:focus {
+  outline: none;
+}
+
+.submitBtn {
+  background-color: white;
+  font-family: Lato, sans-serif;
 }
