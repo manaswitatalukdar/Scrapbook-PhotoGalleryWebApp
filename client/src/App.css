@@ -1,38 +1,72 @@
-.App {
-  text-align: center;
+.app {
+  background-position: center;
+  background-size: cover;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.menuList {
+  padding: 16px;
+  color: black;
+  background-color: #c8dcdf;
+  transition: 0.5s ease-in-out;
+  font-size: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.menuList:hover {
+  background-color: #75a6ad;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.slide1 {
+  background-image: url(images/mountain.jpeg);
+  background-position: center;
+  background-size: cover;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.slide2 {
+  background-image: url(images/gallery.jpeg);
+  background-position: center;
+  background-size: cover;
+}
+
+.slide3 {
+  background-image: url(images/nature.jpeg);
+  background-position: center;
+  background-size: cover;
+}
+
+.scroll1 {
+  background-image: url(images/elephant.jpeg);
+}
+
+.scroll2 {
+  background-image: url(images/camera.jpeg);
+}
+
+.scroll3 {
+  background-image: url(images/coast.jpeg);
+}
+
+.scroll1,
+.scroll2,
+.scroll3 {
+  height: 500px;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.story {
+  padding: 4rem;
+  background-color: white;
+  font-family: Lato, sans-serif;
+  font-size: 1.5rem;
+  height: 400px;
+}
+
+.desc {
+  padding: 4rem;
+  background-color: white;
+  font-family: Lato, sans-serif;
+  font-size: 1.5rem;
+  height: 300px;
 }

@@ -1,77 +1,20 @@
 import React, { Component } from "react";
-import Navbar from "./components/navbar";
-import Counters from "./components/counters";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./App.css";
-import { render } from "@testing-library/react";
+import Home from "./components/Home";
+import About from "./components/About";
+import MainPage from "./components/MainPage";
 
 class App extends Component {
-  state = {
-    counters: [
-      { id: 1, value: 0 },
-      { id: 2, value: 0 },
-      { id: 3, value: 0 },
-      { id: 4, value: 0 },
-    ],
-  };
-
-  handleAddNewCounter = () => {
-    const counters = [...this.state.counters];
-    const length = counters.length;
-    console.log("counters: ", length);
-    counters[length] = { id: length + 1, value: 0 };
-    this.setState({ counters });
-  };
-
-  handleIncrement = (counter) => {
-    const counters = [...this.state.counters];
-    const index = counters.indexOf(counter);
-    counters[index] = { ...counter };
-    counters[index].value++;
-    this.setState({ counters });
-    console.log("incremented!!");
-  };
-
-  handleDecrement = (counter) => {
-    const counters = [...this.state.counters];
-    const index = counters.indexOf(counter);
-    counters[index] = { ...counter };
-    if (counters[index].value > 0) counters[index].value--;
-    this.setState({ counters });
-    console.log("decremented!!");
-  };
-
-  handleDelete = (counter) => {
-    const counters = this.state.counters.filter((c) => c.id !== counter);
-    this.setState({ counters });
-    console.log("Deleted!", counter);
-  };
-
-  handleReset = () => {
-    const counters = this.state.counters.map((c) => {
-      c.value = 0;
-      return c;
-    });
-    this.setState({ counters });
-    console.log("Reset!!");
-  };
-
   render() {
     return (
-      <React.Fragment>
-        <Navbar
-          totalCounters={this.state.counters.filter((c) => c.value > 0).length}
-        />
-        <main className="container">
-          <Counters
-            counters={this.state.counters}
-            onReset={this.handleReset}
-            onDelete={this.handleDelete}
-            onIncrement={this.handleIncrement}
-            onDecrement={this.handleDecrement}
-            onAddNewCounter={this.handleAddNewCounter}
-          />
-        </main>
-      </React.Fragment>
+      <Router>
+        <div className="app">
+          <Route path="/" exact component={MainPage} />
+          <Route path="/home" component={Home} />
+          <Route path="/about" component={About} />
+        </div>
+      </Router>
     );
   }
 }
