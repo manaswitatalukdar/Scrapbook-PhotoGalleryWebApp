@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import "../App.css";
+import image from "../images/logo2.png";
 
 function Scroll() {
   return (
     <div className="Scrolls">
       <div className="story">
+        <img src={image} style={({ height: `40px` }, { width: `60px` })} />
+        <br />
         Life brings us as many joyful moments as it does downfalls, and although
         there are days we wish there was a manual to follow, it simply wouldn’t
         be the same without the spontaneity. The journey of life may not become

@@ -5,21 +5,19 @@ import "react-slideshow-image/dist/styles.css";
 
 function Carousel() {
   return (
-    <div className="Slides">
-      <Fade>
-        <div className="slide1">
-          <div style={{ height: `600px` }}></div>
-        </div>
+    <Fade>
+      <div className="slide1">
+        <div style={{ height: `600px` }}></div>
+      </div>
 
-        <div className="slide2">
-          <div style={{ height: `600px` }}></div>
-        </div>
+      <div className="slide2">
+        <div style={{ height: `600px` }}></div>
+      </div>
 
-        <div className="slide3">
-          <div style={{ height: `600px` }}></div>
-        </div>
-      </Fade>
-    </div>
+      <div className="slide3">
+        <div style={{ height: `600px` }}></div>
+      </div>
+    </Fade>
   );
 }
 

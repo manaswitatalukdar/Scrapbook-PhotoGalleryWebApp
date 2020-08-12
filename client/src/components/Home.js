@@ -1,16 +1,25 @@
 import React, { Component } from "react";
 import "../App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { render } from "@testing-library/react";
-import LoginForm from "./LoginForm";
+import Carousel from "./Carousel";
+import Scroll from "./Scroll";
 
 class Home extends Component {
   render() {
     return (
-      <div className="home">
-        <h3>Home</h3>
-        <LoginForm />
-      </div>
+      <React.Fragment>
+        <Carousel />
+        <Scroll />
+        <div className="footer">
+          collaborate with us
+          <div className="icons">
+            <a href="#" className="fa fa-facebook"></a>
+            <a href="#" className="fa fa-twitter"></a>
+            <a href="#" className="fa fa-linkedin"></a>
+            <a href="#" className="fa fa-instagram"></a>
+          </div>
+        </div>
+      </React.Fragment>
     );
   }
 }

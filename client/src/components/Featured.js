@@ -3,15 +3,15 @@ import "../App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { render } from "@testing-library/react";
 
-class About extends Component {
+class Featured extends Component {
   render() {
     return (
-      <div className="about">
-        <h3>About</h3>
+      <div className="Featured">
+        <h3>Featured</h3>
         <div className="aaltu"></div>
       </div>
     );
   }
 }
 
-export default About;
+export default Featured;
