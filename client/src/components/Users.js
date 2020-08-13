@@ -8,7 +8,7 @@ class Users extends Component {
     return (
       <div className="Users">
         <h3>Users</h3>
-        <div className="aaltu"></div>
+        <div className="header-wrapper"></div>
       </div>
     );
   }

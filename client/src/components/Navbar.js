@@ -16,7 +16,7 @@ const StyledBurger = styled.div`
     border-radius: 20px;
     margin: 6px 0;
     transition: 0.5s;
-    background-color: #6e616c;
+    background-color: #20292b;
     transition: 0.5s ease-in-out;
     transform-origin: 1px;
 
@@ -45,15 +45,15 @@ const Menu = styled.ul`
 `;
 
 const Nav = styled.nav`
-  padding: 10px 10px 5px 20px;
+  padding: 10px 10px 5px 40px;
   display: inline-block;
   background-color: floralwhite;
   letter-spacing: 0.18em;
   text-decoration: none;
-  font-size: 1.4em;
+  font-size: 1.2em;
   font-weight: 500;
   text-transform: uppercase;
-  color: #6e616c;
+  color: #20292b;
   width: 100%;
   transition: 1s ease-in-out;
 `;

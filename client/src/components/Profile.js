@@ -8,7 +8,7 @@ class Profile extends Component {
     return (
       <div className="Profile">
         <h3>Profile</h3>
-        <div className="aaltu"></div>
+        <div className="header-wrapper"></div>
       </div>
     );
   }

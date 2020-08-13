@@ -8,7 +8,7 @@ class Featured extends Component {
     return (
       <div className="Featured">
         <h3>Featured</h3>
-        <div className="aaltu"></div>
+        <div className="header-wrapper"></div>
       </div>
     );
   }
