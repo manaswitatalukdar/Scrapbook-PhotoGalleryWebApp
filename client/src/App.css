@@ -20,6 +20,7 @@ button:focus {
 }
 
 .header-wrapper {
+  min-height: 1800px;
   text-align: center;
   background-color: rgba(253, 252, 252, 0.9);
   padding-top: 50px;
@@ -62,10 +63,34 @@ button:focus {
   fill: none;
 }
 .cls-6 {
-  fill: #005a57;
+  stroke-dasharray: 450;
+  stroke-dashoffset: 450;
+  animation: cls-6 4s linear forwards;
 }
 .cls-7 {
-  fill: #488c7c;
+  stroke-dasharray: 450;
+  stroke-dashoffset: 450;
+  animation: cls-7 4s linear forwards;
+}
+
+@keyframes cls-6 {
+  from {
+    fill: #20292b;
+  }
+  to {
+    fill: #005a57;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes cls-7 {
+  from {
+    fill: #20292b;
+  }
+  to {
+    fill: #488c7c;
+    stroke-dashoffset: 0;
+  }
 }
 
 @keyframes cls-1 {
@@ -76,7 +101,7 @@ button:focus {
     opacity: 1;
   }
   25% {
-    transform: rotate(-360deg);
+    transform: rotate(-30deg);
   }
 }
 
@@ -119,7 +144,7 @@ button:focus {
 .menuList {
   padding: 16px;
   color: #4a4349;
-  background-color: #bfd3c6;
+  background-color: #d3e7e7;
   transition: 0.5s ease-in-out;
   font-size: 16px;
   text-transform: uppercase;
@@ -383,4 +408,23 @@ input:focus {
   to {
     padding-top: 150px;
   }
+}
+
+.column1 {
+  float: left;
+  width: 650px;
+  margin-left: 100px;
+  margin-top: 200px;
+}
+.column2 {
+  text-align: left;
+  padding: 50px;
+  float: left;
+  width: 500px;
+  margin-top: 300px;
+}
+
+#line {
+  float: left;
+  margin-right: 20px;
 }
