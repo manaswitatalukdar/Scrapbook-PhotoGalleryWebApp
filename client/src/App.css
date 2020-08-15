@@ -73,6 +73,47 @@ button:focus {
   animation: cls-7 4s linear forwards;
 }
 
+.users-svg1 {
+  stroke: #fff;
+  stroke-miterlimit: 10;
+  stroke-width: 2px;
+  stroke-dasharray: 450;
+  stroke-dashoffset: 450;
+  animation: users-svg1 4s linear forwards;
+}
+.users-svg2 {
+  stroke: #005a57;
+  stroke-miterlimit: 10;
+  stroke-width: 2px;
+  stroke-dasharray: 450;
+  stroke-dashoffset: 450;
+  animation: users-svg2 4s linear forwards;
+}
+
+#Layer_users {
+  margin-left: 580px;
+}
+
+@keyframes users-svg1 {
+  from {
+    fill: #005a57;
+  }
+  to {
+    fill: white;
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes users-svg2 {
+  from {
+    fill: white;
+  }
+  to {
+    fill: #005a57;
+    stroke-dashoffset: 0;
+  }
+}
+
 @keyframes cls-6 {
   from {
     fill: #20292b;
@@ -199,17 +240,20 @@ button:focus {
 .story {
   padding: 4rem;
   background-color: white;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-size: 1.5rem;
+  font-family: "Mulish", sans-serif;
+  font-size: 1.6rem;
   height: 400px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+  background-image: url(images/background5.png);
 }
 
 .desc {
   padding: 4rem;
   background-color: white;
-  font-family: Lato, sans-serif;
-  font-size: 1.5rem;
+  font-family: "Mulish", sans-serif;
+  font-size: 1.6rem;
   height: 300px;
 }
 
@@ -287,6 +331,10 @@ input:focus {
 
 .fa-instagram {
   background: #125688;
+  color: white;
+}
+
+.fa-search {
   color: white;
 }
 
@@ -413,18 +461,184 @@ input:focus {
 .column1 {
   float: left;
   width: 650px;
-  margin-left: 100px;
+  margin-left: 80px;
   margin-top: 200px;
 }
 .column2 {
   text-align: left;
   padding: 50px;
+  margin-top: 220px;
   float: left;
-  width: 500px;
-  margin-top: 300px;
+  width: 580px;
+  letter-spacing: 0.1em;
+  font-family: "Noto Sans JP", sans-serif;
+  color: #20292b;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url(images/background4.png);
 }
 
 #line {
   float: left;
   margin-right: 20px;
+}
+
+#imagination {
+  float: right;
+}
+#hand1,
+#hand2,
+#hair {
+  transition: ease-in-out 2s;
+}
+
+.column2:hover #hand1 {
+  opacity: 1;
+}
+
+.column2:hover #hand2 {
+  opacity: 0;
+}
+
+.users {
+  padding-top: 100px;
+  padding-left: 100px;
+  min-height: 900px;
+  background-size: contain;
+  background-position: left;
+  background-repeat: no-repeat;
+  background-image: url(images/background6.png);
+  color: white;
+  font-size: 60px;
+  font-family: "Red Rose", cursive;
+  letter-spacing: 0.1em;
+}
+
+.background {
+  background-color: white;
+}
+
+.user1 {
+  fill: #3c354c;
+  animation: user1 4s infinite linear;
+}
+@keyframes user1 {
+  to {
+    transform: translate(200px, 0px);
+  }
+}
+.user9 {
+  fill: #3c354c;
+}
+.user2 {
+  fill: #ffb5bc;
+  animation: user4-1 0.7s infinite ease-in-out;
+}
+.user2-2 {
+  fill: #ffb2b9;
+  opacity: 0;
+  animation: user4-2 0.7s infinite ease-in-out;
+}
+.user3 {
+  opacity: 0.1;
+}
+.user10,
+.user3,
+.user9 {
+  isolation: isolate;
+}
+.user4-1 {
+  fill: #dadae6;
+  animation: user4-1 0.7s infinite ease-in-out;
+}
+.user4-2 {
+  fill: #dcdce6;
+  opacity: 0;
+  animation: user4-2 0.7s infinite ease-in-out;
+}
+@keyframes user4-1 {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes user4-2 {
+  to {
+    opacity: 0.5;
+  }
+}
+.user5 {
+  fill: #3f3d56;
+}
+.user10,
+.user6 {
+  fill: #6c63ff;
+}
+.user7 {
+  fill: #2f2e41;
+}
+
+.user8 {
+  fill: #192534;
+}
+.user10,
+.user9 {
+  opacity: 0.3;
+}
+.user11 {
+  fill: #ffc1c7;
+}
+.user12 {
+  fill: #2f2e41;
+}
+#a955b1b5-7189-4d9c-b072-7fc1ece21ff7 {
+  margin-top: 200px;
+  float: right;
+}
+
+.search-bar {
+  position: absolute;
+  top: 1000px;
+  left: 30%;
+  transform: translate(-50%, -50%);
+  height: 80px;
+  background: #353b48;
+  border-radius: 60px;
+  padding: 10px;
+}
+
+.search-btn {
+  color: white;
+  float: right;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: teal;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-input {
+  color: white;
+  border: none;
+  outline: none;
+  background: none;
+  float: left;
+  padding: 0;
+  font-size: 18px;
+  line-height: 60px;
+  width: 0;
+  transition: 0.4s linear;
+}
+
+.search-bar:hover > .search-input {
+  padding: 0 10px;
+  width: 450px;
+  transition: width 0.4s linear;
+}
+
+.search-bar:hover > .search-btn {
+  background-color: rgba(0, 0, 0, 0);
 }
