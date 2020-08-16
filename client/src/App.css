@@ -39,6 +39,14 @@ button:focus {
   letter-spacing: 0.17em;
 }
 
+.filler {
+  margin-top: 600px;
+  padding: 200px;
+  background-image: url(images/background7.png);
+  background-position: center;
+  background-size: cover;
+}
+
 .row {
   padding: 60px;
 }
@@ -516,6 +524,8 @@ input:focus {
 }
 
 .background {
+  color: black;
+  font-size: 25px;
   background-color: white;
 }
 
@@ -602,17 +612,17 @@ input:focus {
   top: 1000px;
   left: 30%;
   transform: translate(-50%, -50%);
-  height: 80px;
+  height: 70px;
   background: #353b48;
-  border-radius: 60px;
+  border-radius: 50px;
   padding: 10px;
 }
 
 .search-btn {
   color: white;
   float: right;
-  height: 60px;
-  width: 60px;
+  height: 50px;
+  width: 50px;
   border-radius: 50%;
   background-color: teal;
   display: flex;
@@ -628,9 +638,17 @@ input:focus {
   float: left;
   padding: 0;
   font-size: 18px;
-  line-height: 60px;
+  line-height: 50px;
   width: 0;
   transition: 0.4s linear;
+}
+.find {
+  position: absolute;
+  top: 980px;
+  left: 50%;
+  transition: linear;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
 }
 
 .search-bar:hover > .search-input {
@@ -641,4 +659,77 @@ input:focus {
 
 .search-bar:hover > .search-btn {
   background-color: rgba(0, 0, 0, 0);
+}
+
+#fd01fc53-8d1b-486a-a481-e11f41af06c1 {
+  position: absolute;
+  top: 1080px;
+  left: 50%;
+}
+
+.cls-user1 {
+  fill: #3f3d56;
+}
+.cls-user2 {
+  fill: #2f2e41;
+}
+.cls-user3 {
+  fill: #575a89;
+}
+.cls-user4 {
+  opacity: 0.1;
+  isolation: isolate;
+}
+.cls-user5 {
+  fill: #fbbebe;
+}
+.cls-user6 {
+  fill: none;
+  stroke: #403d56;
+  stroke-miterlimit: 10;
+  stroke-width: 2px;
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
+  animation: cls-user6 4s linear forwards infinite;
+}
+@keyframes cls-user6 {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+.cls-user7 {
+  opacity: 0.5;
+}
+.cls-user8 {
+  fill: url(#linear-gradient);
+}
+.cls-user9 {
+  fill: #f5f5f5;
+}
+.cls-user10 {
+  fill: #333;
+}
+.cls-user11 {
+  fill: #6c63ff;
+}
+.cls-user12 {
+  fill: #fda57d;
+}
+.cls-user13 {
+  fill: url(#linear-gradient-2);
+}
+.cls-user14 {
+  fill: #fdb797;
+}
+.cls-user15 {
+  fill: url(#linear-gradient-3);
+}
+.cls-user16 {
+  fill: #f55f44;
+}
+
+.userlist {
+  text-decoration: none;
+  border-bottom: 0.5px solid rgba(209, 221, 221, 0.4);
+  padding: 5px 5px 5px 10px;
 }
