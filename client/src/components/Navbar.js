@@ -68,7 +68,7 @@ function Navbar() {
           <li className="menuList">Home</li>
         </Link>
         <Link to="/about" style={{ textDecoration: "none" }}>
-          <li className="menuList">About</li>
+          <li className="menuList">About us</li>
         </Link>
         <Link to="/users" style={{ textDecoration: "none" }}>
           <li className="menuList">Users</li>

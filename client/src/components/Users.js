@@ -1,16 +1,11 @@
 import React, { Component } from "react";
 import "../App.css";
 import styled from "styled-components";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  useLocation,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { render } from "@testing-library/react";
 import ScrollAnimation from "react-animate-on-scroll";
 import axios from "axios";
+import User from "./User";
 
 const Userlist = styled.ul`
   overflow: hidden;
@@ -29,24 +24,6 @@ const Userlist = styled.ul`
   width: 450px;
 `;
 
-const User = ({ users }) => {
-  const location = useLocation();
-  const pathname = location.pathname;
-  const username = pathname.substring(14);
-  const user = users.find(({ first_name }) => first_name === username);
-  if (user === undefined) return null;
-  return (
-    <div>
-      User Name:{" "}
-      <strong>
-        {user.first_name} {user.last_name}
-      </strong>
-      <br />
-      Address: <strong>{user.team.city}</strong>
-    </div>
-  );
-};
-
 class Users extends Component {
   constructor(props) {
     super(props);
@@ -55,10 +32,12 @@ class Users extends Component {
       isLoaded: false,
       search: "",
       open: false,
+      selectedUser: null,
     };
   }
 
   componentDidMount() {
+    console.log("1");
     this.ref = React.createRef();
     axios.get("https://www.balldontlie.io/api/v1/players").then((result) => {
       this.setState({
@@ -69,11 +48,17 @@ class Users extends Component {
   }
 
   updateSearch(event) {
+    console.log("2");
     this.setState({ search: event.target.value.substr(0, 20) });
+  }
+
+  updateUser(user) {
+    this.setState({ selectedUser: user });
   }
 
   render() {
     let filteredUsers = this.state.users.filter((user) => {
+      console.log("3");
       if (this.state.search === "") return null;
       return (
         user.first_name
@@ -726,28 +711,30 @@ class Users extends Component {
         <div className="find">Find someone you know</div>
         <Userlist>
           {filteredUsers.map((user) => (
-            <li key={user.id} className="userlist">
-              <Link
-                style={{ color: "#FFF", textDecoration: `none` }}
-                to={`/users/search/${user.first_name}`}
-                onClick={() => {
-                  this.ref.current.scrollIntoView({
-                    behavior: "smooth",
-                  });
-                }}
-              >
+            <Link
+              key={user.id}
+              style={{ color: "#FFF", textDecoration: `none` }}
+              to={{
+                pathname: `/users/search/${user.first_name}`,
+                state: { value: user },
+              }}
+              onClick={() => {
+                this.ref.current.scrollIntoView({
+                  behavior: "smooth",
+                });
+              }}
+            >
+              <li className="userlist">
                 {user.first_name} {user.last_name}
-              </Link>
-            </li>
+              </li>
+            </Link>
           ))}
         </Userlist>
 
-        <div className="filler" ref={this.ref}>
-          <Route
-            path="/users/search/:username"
-            render={() => <User users={this.state.users} />}
-          />
+        <div className="userprofile" ref={this.ref}>
+          {" "}
         </div>
+        <Route path="/users/search/:username" component={User} />
       </div>
     );
   }
