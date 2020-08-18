@@ -6,9 +6,31 @@ import { render } from "@testing-library/react";
 class Featured extends Component {
   render() {
     return (
-      <div className="Featured">
-        <h3>Featured</h3>
-        <div className="header-wrapper"></div>
+      <div className="background">
+        <div className="featured">
+          <div className="card">
+            <div
+              style={{
+                fontFamily: ` 'Nanum Myeongjo', serif`,
+                fontSize: `45px`,
+                fontWeight: `600`,
+                color: `teal`,
+              }}
+            >
+              Creative Cloud
+            </div>
+            <br />
+            <br />
+            <div
+              style={{
+                fontSize: `20px`,
+                letterSpacing: `0.12em`,
+              }}
+            >
+              get all the features photographs for our contributors here.
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

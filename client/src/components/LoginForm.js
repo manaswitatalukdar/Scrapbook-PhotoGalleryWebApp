@@ -4,6 +4,7 @@ import styled from "styled-components";
 import * as Yup from "yup";
 
 const FormBody = styled.div`
+  text-align: center;
   color: white;
   background-color: rgba(0, 0, 0, 0.9);
   padding-top: 30px;
@@ -36,11 +37,7 @@ const LoginForm = () => {
       >
         {({ isSubmitting }) => (
           <Form>
-            <Field
-              type="post_code"
-              name="post_code"
-              placeholder="Enter your ID"
-            />
+            <Field type="name" name="name" placeholder="Enter your Username" />
             <br />
             <ErrorMessage name="name" component={Error} />
             <br />

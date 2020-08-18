@@ -6,6 +6,7 @@ import { render } from "@testing-library/react";
 import ScrollAnimation from "react-animate-on-scroll";
 import axios from "axios";
 import User from "./User";
+import scrollToComponent from "react-scroll-to-component";
 
 const Userlist = styled.ul`
   overflow: hidden;
@@ -27,6 +28,7 @@ const Userlist = styled.ul`
 class Users extends Component {
   constructor(props) {
     super(props);
+    this.ref = React.createRef();
     this.state = {
       users: [],
       isLoaded: false,
@@ -37,8 +39,6 @@ class Users extends Component {
   }
 
   componentDidMount() {
-    console.log("1");
-    this.ref = React.createRef();
     axios.get("https://www.balldontlie.io/api/v1/players").then((result) => {
       this.setState({
         isLoaded: true,
@@ -48,7 +48,6 @@ class Users extends Component {
   }
 
   updateSearch(event) {
-    console.log("2");
     this.setState({ search: event.target.value.substr(0, 20) });
   }
 
@@ -694,6 +693,9 @@ class Users extends Component {
             points="633.12 155.96 638.6 153.22 639.84 157.61 636.48 159.82 633.12 155.96"
           />
         </svg>
+        <div style={{ position: `absolute`, top: `1900px` }} ref={this.ref}>
+          {" "}
+        </div>
 
         <div className="search-bar">
           <input
@@ -712,16 +714,14 @@ class Users extends Component {
         <Userlist>
           {filteredUsers.map((user) => (
             <Link
+              onClick={() => {
+                scrollToComponent(this.ref.current);
+              }}
               key={user.id}
               style={{ color: "#FFF", textDecoration: `none` }}
               to={{
                 pathname: `/users/search/${user.first_name}`,
                 state: { value: user },
-              }}
-              onClick={() => {
-                this.ref.current.scrollIntoView({
-                  behavior: "smooth",
-                });
               }}
             >
               <li className="userlist">
@@ -731,9 +731,6 @@ class Users extends Component {
           ))}
         </Userlist>
 
-        <div className="userprofile" ref={this.ref}>
-          {" "}
-        </div>
         <Route path="/users/search/:username" component={User} />
       </div>
     );
