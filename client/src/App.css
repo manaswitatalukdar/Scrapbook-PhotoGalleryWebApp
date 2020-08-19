@@ -106,17 +106,17 @@ button:focus {
   stroke: #fff;
   stroke-miterlimit: 10;
   stroke-width: 2px;
-  stroke-dasharray: 450;
-  stroke-dashoffset: 450;
-  animation: users-svg1 4s linear forwards;
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: users-svg1 5s linear forwards infinite;
 }
 .users-svg2 {
   stroke: #005a57;
   stroke-miterlimit: 10;
   stroke-width: 2px;
-  stroke-dasharray: 450;
-  stroke-dashoffset: 450;
-  animation: users-svg2 4s linear forwards;
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+  animation: users-svg2 5s linear forwards infinite;
 }
 
 #Layer_users {
@@ -343,6 +343,14 @@ input:focus {
   opacity: 0.7;
 }
 
+.fa-user {
+  color: white;
+}
+
+.fa-heart {
+  color: white;
+}
+
 .fa-facebook {
   background: #3b5998;
   color: white;
@@ -555,7 +563,7 @@ input:focus {
   -webkit-box-shadow: 0 0 5px 2px rgba(48, 109, 99, 0.4);
   -moz-box-shadow: 0 0 5px 2px rgba(48, 109, 99, 0.4);
   box-shadow: 0 0 5px 2px rgba(48, 109, 99, 0.4);
-  padding-top: 50px;
+  padding-top: 70px;
   font-size: 16px;
 }
 .users {
@@ -824,4 +832,65 @@ input:focus {
   font-family: "Noto Sans JP", sans-serif;
   top: 2100px;
   right: 300px;
+}
+
+.image-viewer {
+  margin: 0;
+  padding-top: 40px;
+  padding-right: 50px;
+  column-count: 3;
+  background-color: rgb(6, 39, 31);
+}
+
+.image:hover {
+  transform: scale(1.04);
+}
+
+.info {
+  position: absolute;
+  padding: 0;
+  min-width: 390px;
+  bottom: 4px;
+  left: 16px;
+  color: rgb(254, 255, 255);
+  background-color: rgba(2, 92, 92, 0.4);
+  font-size: 16px;
+  opacity: 0;
+  transition: ease-in-out;
+}
+
+.image:hover .info {
+  opacity: 1;
+}
+
+.cls-photographer1 {
+  fill: #464353;
+}
+.cls-photographer2,
+.cls-photographer9 {
+  opacity: 0.1;
+}
+.cls-photographer2,
+.cls-photographer5,
+.cls-photographer8 {
+  isolation: isolate;
+}
+.cls-photographer3 {
+  fill: #514e7f;
+}
+.cls-photographer4,
+.cls-photographer5 {
+  fill: #6c63ff;
+}
+.cls-photographer5 {
+  opacity: 0.5;
+}
+.cls-photographer6 {
+  fill: #3f3d56;
+}
+.cls-photographer7 {
+  fill: #a1616a;
+}
+.cls-photographer8 {
+  opacity: 0.05;
 }

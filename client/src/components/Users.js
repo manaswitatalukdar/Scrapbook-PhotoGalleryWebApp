@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "../App.css";
 import styled from "styled-components";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import { render } from "@testing-library/react";
 import ScrollAnimation from "react-animate-on-scroll";
 import axios from "axios";
 import User from "./User";
@@ -34,12 +33,12 @@ class Users extends Component {
       isLoaded: false,
       search: "",
       open: false,
-      selectedUser: null,
     };
   }
 
   componentDidMount() {
     axios.get("https://www.balldontlie.io/api/v1/players").then((result) => {
+      console.log(result);
       this.setState({
         isLoaded: true,
         users: result.data.data,
@@ -57,12 +56,11 @@ class Users extends Component {
 
   render() {
     let filteredUsers = this.state.users.filter((user) => {
-      console.log("3");
       if (this.state.search === "") return null;
       return (
         user.first_name
           .toLowerCase()
-          .indexOf(this.state.search.toLowerCase()) !== -1
+          .indexOf(this.state.search.toLowerCase()) === 0
       );
     });
 
@@ -714,17 +712,26 @@ class Users extends Component {
         <Userlist>
           {filteredUsers.map((user) => (
             <Link
-              onClick={() => {
-                scrollToComponent(this.ref.current);
-              }}
               key={user.id}
               style={{ color: "#FFF", textDecoration: `none` }}
               to={{
                 pathname: `/users/search/${user.first_name}`,
                 state: { value: user },
               }}
+              onClick={() => {
+                scrollToComponent(this.ref.current);
+                this.setState({
+                  scroll: true,
+                });
+                console.log(this.state.scroll);
+              }}
             >
-              <li className="userlist">
+              <li
+                className="userlist"
+                onClick={() => {
+                  scrollToComponent(this.ref.current);
+                }}
+              >
                 {user.first_name} {user.last_name}
               </li>
             </Link>
