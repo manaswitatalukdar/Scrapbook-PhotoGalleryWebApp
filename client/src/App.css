@@ -270,7 +270,7 @@ button:focus {
   padding: 4rem;
   background-color: white;
   font-family: "Mulish", sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.1rem;
   height: 400px;
   background-size: contain;
   background-repeat: no-repeat;
@@ -282,7 +282,7 @@ button:focus {
   padding: 4rem;
   background-color: white;
   font-family: "Mulish", sans-serif;
-  font-size: 1.6rem;
+  font-size: 1.1rem;
   height: 300px;
 }
 
@@ -303,14 +303,14 @@ input:focus {
 
 .loginButton {
   margin-right: 30px;
+  margin-top: 5px;
   text-align: center;
   padding-top: 6px;
   padding-bottom: 6px;
-  width: 80px;
+  width: 120px;
   color: floralwhite;
   background-color: #4a4349;
-  font-size: 16px;
-  font-size: 16px;
+  font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   float: right;
@@ -839,7 +839,6 @@ input:focus {
   padding-top: 40px;
   padding-right: 50px;
   column-count: 3;
-  background-color: rgb(6, 39, 31);
 }
 
 .image:hover {

@@ -1,61 +1,47 @@
-import React, { Component } from "react";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import React, { useState } from "react";
 import styled from "styled-components";
-import * as Yup from "yup";
-
-const FormBody = styled.div`
-  text-align: center;
-  color: white;
-  background-color: rgba(0, 0, 0, 0.9);
-  padding-top: 30px;
-  position: relative;
-  padding-bottom: 100px;
-  margin: 70px 450px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  z-index: 1px;
-`;
-
-const Error = styled.div`
-  font-size: 12px;
-  color: tomato;
-`;
+import Axios from 'axios';
 
 const LoginForm = () => {
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [loginStatus, setLoginStatus] = useState('');
+
+  const login=()=>{
+    Axios.post('http://localhost:5000/login',{
+      username: username,
+      password: password
+    }).then((response)=>{
+        if(response.data.message){
+          setLoginStatus(response.data.message);
+        }
+        else{
+          setLoginStatus(response.data.username)
+        }
+        
+    });
+  };
+
   return (
-    <FormBody>
-      <h3>Login Form</h3>
+    <React.Fragment>
+      <h3>Login</h3>
       <br />
-      <Formik
-        initialValues={{ id: "", password: "" }}
-        onSubmit={(values, { setSubmitting }) => {
-          setTimeout(() => {
-            console.log("Logging in", values);
-          }, 500);
-        }}
-        //validation
-      >
-        {({ isSubmitting }) => (
-          <Form>
-            <Field type="name" name="name" placeholder="Enter your Username" />
-            <br />
-            <ErrorMessage name="name" component={Error} />
-            <br />
-            <Field
+            <input type="name" name="name" placeholder="Enter your Username" onChange={(e)=>{setUsername(e.target.value)}}/>
+            <br/>
+            <br/>
+            <input
               type="password"
               name="password"
               placeholder="Enter your password"
+              onChange={(e)=>{setPassword(e.target.value)}}
             />
-            <br />
-            <ErrorMessage name="email" component={Error} />
-            <br />
-            <button type="submit" disabled={isSubmitting} className="submitBtn">
+            <br/><br/>
+            <button type="submit"  className="submitBtn" onClick={login}>
               Submit
             </button>
-          </Form>
-        )}
-      </Formik>
-    </FormBody>
+            <h1>{loginStatus}</h1>
+    </React.Fragment>
   );
 };
 

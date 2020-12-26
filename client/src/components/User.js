@@ -15,7 +15,7 @@ const topic = [
 
 const Topic = (props) => {
   const user = props.location.state.value;
-  const tab = props.location.pathname.substring(15 + user.first_name.length);
+  const tab = props.location.pathname.substring(15 + user.username.length);
   if (user === undefined) return null;
   return (
     <div className="topic">
@@ -52,18 +52,18 @@ const User = (props) => {
         <br />
         <div style={{ float: `left`, fontSize: `35px` }}>
           <div style={{ fontSize: `35px` }}>
-            {user.first_name} {user.last_name}
+            {user.username} 
           </div>
 
           <div style={{ fontSize: `20px` }}>
             {" "}
-            <a className="fa fa-map-marker"></a> {user.team.city}
+            <a className="fa fa-map-marker"></a> {user.username}
           </div>
           <div style={{ fontSize: `20px`, textTransform: `lowercase` }}>
             {" "}
-            <a className="fa fa-envelope"></a> {user.first_name}
-            {user.team.abbreviation}
-            {user.id}@gmail.com
+            <a className="fa fa-envelope"></a> {user.username}
+            {user.username}
+            {user._id}@gmail.com
           </div>
         </div>
       </div>
@@ -74,7 +74,7 @@ const User = (props) => {
               activeClassName="nav__link--active"
               className="nav__link"
               to={{
-                pathname: `/users/search/${user.first_name}/${name}`,
+                pathname: `/users/search/${user.username}/${name}`,
                 state: { value: user },
               }}
               onClick={() => {

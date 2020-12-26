@@ -35,13 +35,13 @@ class Users extends Component {
       open: false,
     };
   }
-
+//https://www.balldontlie.io/api/v1/players http://localhost:5000/userList
   componentDidMount() {
-    axios.get("https://www.balldontlie.io/api/v1/players").then((result) => {
-      console.log(result);
+    axios.get("http://localhost:5000/userList").then((result) => {
+      console.log(result.data);
       this.setState({
         isLoaded: true,
-        users: result.data.data,
+        users: result.data,
       });
     });
   }
@@ -58,7 +58,7 @@ class Users extends Component {
     let filteredUsers = this.state.users.filter((user) => {
       if (this.state.search === "") return null;
       return (
-        user.first_name
+        user.username
           .toLowerCase()
           .indexOf(this.state.search.toLowerCase()) === 0
       );
@@ -712,10 +712,10 @@ class Users extends Component {
         <Userlist>
           {filteredUsers.map((user) => (
             <Link
-              key={user.id}
+              key={user._id}
               style={{ color: "#FFF", textDecoration: `none` }}
               to={{
-                pathname: `/users/search/${user.first_name}`,
+                pathname: `/users/search/${user.username}`,
                 state: { value: user },
               }}
               onClick={() => {
@@ -732,7 +732,7 @@ class Users extends Component {
                   scrollToComponent(this.ref.current);
                 }}
               >
-                {user.first_name} {user.last_name}
+                {user.username} 
               </li>
             </Link>
           ))}

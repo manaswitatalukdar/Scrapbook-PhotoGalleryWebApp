@@ -6,7 +6,7 @@ import About from "./components/About";
 import Users from "./components/Users";
 import Profile from "./components/Profile";
 import Featured from "./components/Featured";
-import LoginForm from "./components/LoginForm";
+import Form from "./components/Form";
 import Navbar from "./components/Navbar";
 class App extends Component {
   render() {
@@ -20,7 +20,7 @@ class App extends Component {
             <Route path="/users" component={Users} />
             <Route path="/featured" component={Featured} />
             <Route path="/profile" component={Profile} />
-            <Route path="/login" exact component={LoginForm} />
+            <Route path="/login" exact component={Form} />
           </Switch>
         </div>
       </Router>
