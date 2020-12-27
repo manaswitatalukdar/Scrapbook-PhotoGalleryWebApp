@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
-const URI = "mongodb+srv://Manaswita10:onlyme@cluster0.nj9rx.mongodb.net/test?retryWrites=true&w=majority"
+const dotenv = require("dotenv");
+
+dotenv.config();
+const URI = process.env.ATLAS_URI
 
 const connectDB = async () => {
     await mongoose.connect(URI,{useUnifiedTopology: true, useNewUrlParser: true});

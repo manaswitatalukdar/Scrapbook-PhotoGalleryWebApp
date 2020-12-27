@@ -36,7 +36,7 @@ const User = (props) => {
           style={{
             float: `left`,
             height: `300px`,
-            width: `400px`,
+            width: `300px`,
             padding: `15px`,
           }}
         >

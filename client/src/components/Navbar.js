@@ -96,9 +96,7 @@ function Navbar() {
           scrapbook
         </span>
 
-        <Link to="/login" style={{ textDecoration: "none" }}>
-          <span className="loginButton">login/register</span>
-        </Link>
+       
       </Nav>
     </React.Fragment>
   );
