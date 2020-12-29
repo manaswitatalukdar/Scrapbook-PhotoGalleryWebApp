@@ -76,7 +76,7 @@ function Navbar() {
         <Link to="/featured" style={{ textDecoration: "none" }}>
           <li className="menuList">Featured Photos</li>
         </Link>
-        <Link to="/profile" style={{ textDecoration: "none" }}>
+        <Link to= "/profile" style={{ textDecoration: "none" }} >
           <li className="menuList">My Profile</li>
         </Link>
       </Menu>
@@ -96,7 +96,6 @@ function Navbar() {
           scrapbook
         </span>
 
-       
       </Nav>
     </React.Fragment>
   );

@@ -4,6 +4,13 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { render } from "@testing-library/react";
 import Axios from 'axios';
 
+const ProtectedRoute = (props) => {
+  console.log(props);
+  if(props.loggedIn === 'logout') {
+    return (<React.Fragment><h1>Hello</h1></React.Fragment>)
+  }
+    return (<React.Fragment>....</React.Fragment>)
+};
 
 const Profile = () => {
 
@@ -36,6 +43,7 @@ const Profile = () => {
           <span className="loginButton">{loggedIn}</span>
         </Link>
         <p className="profileinfo">{username}</p>
+        <ProtectedRoute loggedIn={loggedIn}/>
     </div>
   )};
 

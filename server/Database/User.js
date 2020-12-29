@@ -7,7 +7,19 @@ const user = new mongoose.Schema({
     },
     password: {
         type: String
+    },
+    email: {
+        type: String
+    },
+    location: {
+        type: String
+    } ,
+    profile_picture:
+    {
+        data: Buffer,
+        contentType: String
     }
+    
 })
 
 

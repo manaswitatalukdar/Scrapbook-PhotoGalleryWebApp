@@ -1,6 +1,7 @@
 const express = require('express');
 const connectDB = require('./Database/Connection');
 const cors = require('cors');
+const fileUpload = require('express-fileupload');
 const app = express();
 const User = require('./Database/User');
 const session = require('express-session');
@@ -18,6 +19,7 @@ app.use(cors({
 }));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(fileUpload());
 app.use(session({
   key: "userId", 
   secret: process.env.SECRET, 
@@ -26,9 +28,10 @@ app.use(session({
   cookie:{
       expires: 60*60*24
 }}))
+app.use('/uploaddp',require('./Routes/ProfilePic'))
 app.use('/register', require('./Routes/Register'));
 app.use('/login' , require('./Routes/Login'));
-app.get('/userList', function(req,res){
+app.get('/userList', async(req,res)=>{
     User.find({}, function(err, users) {
         res.send(users);  
       });

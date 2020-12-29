@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Axios from 'axios';
-
+import { useHistory } from "react-router-dom";
 
 const FormBody = styled.div`
   margin-top: 70px;
@@ -22,6 +22,7 @@ const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loginStatus, setLoginStatus] = useState('');
+  const history = useHistory();
 
   const login=()=>{
     Axios.post('http://localhost:5000/login',{
@@ -32,7 +33,8 @@ const LoginForm = () => {
           setLoginStatus(response.data.message);
         }
         else{
-          setLoginStatus(response.data.username+ ' you have successfully logged in')
+          setLoginStatus('loggedin');
+          history.push('/profile');
         }
         
     });

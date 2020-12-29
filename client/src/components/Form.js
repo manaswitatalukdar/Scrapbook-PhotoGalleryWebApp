@@ -5,7 +5,7 @@ import LoginForm from "./LoginForm";
 import RegistrationForm from "./RegistrationForm";
 
 
-const Form = () => {
+const Form = (props) => {
     return(
         <React.Fragment>
 <RegistrationForm />
