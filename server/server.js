@@ -1,14 +1,17 @@
 const express = require('express');
 const connectDB = require('./Database/Connection');
 const cors = require('cors');
-const fileUpload = require('express-fileupload');
 const app = express();
 const User = require('./Database/User');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const dotenv = require("dotenv");
+const fileUpload = require('express-fileupload');
 dotenv.config();
+
+const publicDir = require('path').join(__dirname,'/public'); 
+app.use(express.static(publicDir)); 
 
 connectDB();
 app.use(express.json({extended: false}));
@@ -28,7 +31,7 @@ app.use(session({
   cookie:{
       expires: 60*60*24
 }}))
-app.use('/uploaddp',require('./Routes/ProfilePic'))
+
 app.use('/register', require('./Routes/Register'));
 app.use('/login' , require('./Routes/Login'));
 app.get('/userList', async(req,res)=>{

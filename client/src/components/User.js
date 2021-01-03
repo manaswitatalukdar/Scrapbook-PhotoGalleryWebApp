@@ -1,6 +1,5 @@
 import React, { useState, useRef } from "react";
 import { NavLink, useLocation, Route } from "react-router-dom";
-import image from "../images/profilepic.jpeg";
 
 const topic = [
   {
@@ -28,6 +27,7 @@ const User = (props) => {
   const ref = useRef();
   const user = props.location.state.value;
   console.log(user);
+  const image = "http://localhost:5000/"+user.profile_picture;
   if (user === undefined) return null;
   return (
     <div className="filler">
@@ -50,20 +50,15 @@ const User = (props) => {
           />
         </div>
         <br />
-        <div style={{ float: `left`, fontSize: `35px` }}>
+        <div style={{ float: `left`, fontSize: `35px`, marginLeft: `50px` }}>
           <div style={{ fontSize: `35px` }}>
             {user.username} 
           </div>
-
           <div style={{ fontSize: `20px` }}>
-            {" "}
-            <a className="fa fa-map-marker"></a> {user.username}
+            <a className="fa fa-map-marker"></a> {user.location}
           </div>
           <div style={{ fontSize: `20px`, textTransform: `lowercase` }}>
-            {" "}
-            <a className="fa fa-envelope"></a> {user.username}
-            {user.username}
-            {user._id}@gmail.com
+            <a className="fa fa-envelope"></a> {user.email}
           </div>
         </div>
       </div>

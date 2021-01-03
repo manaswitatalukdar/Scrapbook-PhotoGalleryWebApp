@@ -12,12 +12,12 @@ const user = new mongoose.Schema({
         type: String
     },
     location: {
-        type: String
+        type: String,
+        default: 'Unknown'
     } ,
     profile_picture:
     {
-        data: Buffer,
-        contentType: String
+       type: String,
     }
     
 })

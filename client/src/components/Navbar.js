@@ -81,7 +81,7 @@ function Navbar() {
         </Link>
       </Menu>
       <Nav open={open}>
-        <span style={{ float: `left` }}>
+        <span style={{ float: `left`, paddingTop: `0.25px` }}>
           <StyledBurger
             open={open}
             onClick={() => {

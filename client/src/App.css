@@ -71,12 +71,35 @@ button:focus {
 .profile {
   min-height: 800px;
   background-image: url(images/background5.png);
+  background-color: white;
   background-position: center;
   background-size: cover;
 }
 
 .profileinfo {
-  margin: 30px;
+  font-size: 25px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.profilestatus {
+  text-align: center;
+  padding-top: 250px;
+  font-size: 25px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+.portfolio {
+  font-size: 14px;
+  min-height: 600px;
+  background-image: url(images/background9.png);
+  background-position: center;
+  background-size: cover;
+}
+
+.information {
+  float: right;
+  margin-top: 100px;
+  margin-right: 370px;
 }
 
 .row {
@@ -306,6 +329,16 @@ input:focus {
 }
 
 .submitBtnReg {
+  float: right;
+  padding: 5px 10px;
+  color: white;
+  background-color: #4a4349;
+  font-family: Lato, sans-serif;
+  border-radius: 5px;
+  margin-top: 30px;
+}
+
+.submitBtnLog {
   padding: 5px 10px;
   color: white;
   background-color: #4a4349;
@@ -313,16 +346,9 @@ input:focus {
   border-radius: 5px;
 }
 
-.submitBtnLog {
-  padding: 5px 10px;
-  background-color: rgb(240, 227, 221);
-  font-family: Lato, sans-serif;
-  border-radius: 5px;
-}
-
 .loginButton {
   margin-right: 30px;
-  margin-top: 5px;
+  margin-top: 20px;
   text-align: center;
   padding: 8px 8px 8px 8px;
   color: floralwhite;

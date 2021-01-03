@@ -8,6 +8,7 @@ import Profile from "./components/Profile";
 import Featured from "./components/Featured";
 import Form from "./components/Form";
 import Navbar from "./components/Navbar";
+import RegistrationForm from "./components/RegistrationForm"
 class App extends Component {
   render() {
     return (
@@ -20,6 +21,7 @@ class App extends Component {
             <Route path="/users" component={Users} />
             <Route path="/featured" component={Featured} />
             <Route path="/login" exact component={Form} />
+            <Route path="/register" exact component={RegistrationForm}/>
             <Route path="/profile" exact component={Profile}/>
           </Switch>
         </div>
