@@ -18,10 +18,10 @@ const ProtectedRoute = (props) => {
             src={image}
             style={{
               height: `400px`,
-              width: `350px`,
+              width: `380px`,
               border: `solid white 7px`,
               marginTop: `95px`,
-              marginLeft: `150px`,
+              marginLeft: `145px`,
             }}/>
             <div className="information">
               <h1><strong>About</strong></h1>

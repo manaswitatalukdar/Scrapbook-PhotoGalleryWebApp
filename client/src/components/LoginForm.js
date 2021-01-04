@@ -5,16 +5,16 @@ import { Link, useHistory } from "react-router-dom";
 import "../App.css";
 
 const FormBody = styled.div`
-  margin-top: 70px;
+  margin-top: 50px;
   margin-left: 275px;
   float: left;
   text-align: center;
   color: rgb(29,29,29);
   background-color:  rgba(240, 221, 200,0.9);
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  z-index: 1px;
+  
   padding-top: 80px;
-  height: 400px;
+  height: 450px;
   width: 400px;
 `;
 
@@ -44,7 +44,7 @@ const LoginForm = () => {
 
   return (
     <FormBody>
-      <h3>Login</h3>
+      <h3 style={{fontFamily: `'Righteous', cursive`}}>Login</h3>
       <br />
            <svg height="23px" 
            width="25px" 
@@ -78,9 +78,9 @@ const LoginForm = () => {
               placeholder="Enter your password"
               onChange={(e)=>{setPassword(e.target.value)}}
             />
-            <br/><br/>
+            <br/><br/><br/>
             <button type="submit"  className="submitBtnLog" onClick={login}>
-              Submit
+              Login
             </button>
             <p style={{fontSize: `11px` , color: `red`}}>{loginStatus}</p>
             <p>Not a user? <Link to="/register" >Register</Link></p>

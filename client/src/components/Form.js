@@ -5,28 +5,24 @@ import LoginForm from "./LoginForm";
 import image from "../images/authentication.png"
 
 const FormBody = styled.div`
-margin-top: 70px;
+margin-top: 50px;
 float: left;
 text-align: center;
 color: white;
-background-color: rgba(29, 26, 29, 0.9);
+background-image: url(${image});
+background-position: center;
+background-size: cover;
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-z-index: 1px;
 padding-top: 100px;
-height: 400px;
+height: 450px;
 width: 400px;
 `;
 
-const Form = (props) => {
+const Form = () => {
     return(
         <React.Fragment>
         <LoginForm/>
-        <FormBody>
-            <img src={image} 
-            style={{ 
-                height: `230px`,
-                width: `300px`,}}/>
-        </FormBody>
+        <FormBody/>
         </React.Fragment>
         
     );

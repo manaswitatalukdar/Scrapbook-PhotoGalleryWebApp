@@ -43,9 +43,10 @@ const User = (props) => {
           <img
             src={image}
             style={{
-              height: `250px`,
-              width: `250px`,
+              height: `280px`,
+              width: `280px`,
               borderRadius: `50%`,
+              border: `solid white 7px`
             }}
           />
         </div>

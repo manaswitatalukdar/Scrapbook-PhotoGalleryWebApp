@@ -5,14 +5,13 @@ const User = require('../Database/User');
 const route = express.Router();
 
 route.post('/', async(req,res)=>{
-    const profile_picture = req.files.image;
-    console.log(profile_picture);
+    if(req.files !== null) {const profile_picture = req.files.image;
     profile_picture.mv('./public/'+profile_picture.name, function(err){
         if(err){
             console.group('err');
             res.json({"status": "File not uploaded"});
         }
-    });
+    });}
     const{username, password, email, location} = req.body;
     let exists = false;
     await User.findOne({
@@ -30,7 +29,7 @@ route.post('/', async(req,res)=>{
     user.password = password;
     user.email = email;
     user.location = location;
-    user.profile_picture = profile_picture.name;
+    if(req.files !== null)user.profile_picture = profile_picture.name;
     let userModel = new User(user); 
     await userModel.save();
     res.json(userModel);

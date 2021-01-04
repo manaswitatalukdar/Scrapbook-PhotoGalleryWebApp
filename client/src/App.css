@@ -42,7 +42,7 @@ button:focus {
 .filler {
   margin-top: 600px;
   padding-left: 100px;
-  min-height: 800px;
+  height: 600px;
   background-image: url(images/background7.png);
   background-position: center;
   background-size: cover;
@@ -84,7 +84,7 @@ button:focus {
 .profilestatus {
   text-align: center;
   padding-top: 250px;
-  font-size: 25px;
+  font-size: 50px;
   font-family: Georgia, "Times New Roman", Times, serif;
 }
 
@@ -245,6 +245,26 @@ button:focus {
   }
 }
 
+#name::placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+#password::placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+#email::placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
+#location::placeholder {
+  color: white;
+  opacity: 0.7;
+}
+
 .menuList {
   padding: 16px;
   color: #4a4349;
@@ -329,13 +349,14 @@ input:focus {
 }
 
 .submitBtnReg {
-  float: right;
+  border: none;
+  outline: none;
+  margin-top: 20px;
   padding: 5px 10px;
-  color: white;
-  background-color: #4a4349;
-  font-family: Lato, sans-serif;
-  border-radius: 5px;
-  margin-top: 30px;
+  color: rgb(30, 85, 99);
+  background-color: #ffffff;
+  padding: 8px 115px;
+  font-family: "Orbitron", sans-serif;
 }
 
 .submitBtnLog {
@@ -358,6 +379,12 @@ input:focus {
   letter-spacing: 0.14em;
   float: right;
   border-radius: 3px;
+}
+
+.form {
+  background-color: #007bb5;
+  background-position: center;
+  background-size: cover;
 }
 
 .logo {
