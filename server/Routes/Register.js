@@ -5,7 +5,9 @@ const User = require('../Database/User');
 const route = express.Router();
 
 route.post('/', async(req,res)=>{
+    let user = {};
     if(req.files !== null) {const profile_picture = req.files.image;
+        user.profile_picture = profile_picture.name;
     profile_picture.mv('./public/'+profile_picture.name, function(err){
         if(err){
             console.group('err');
@@ -24,12 +26,10 @@ route.post('/', async(req,res)=>{
    console.log(exists);
    if(exists) res.send('Username already exists');
    else{
-    let user = {};
     user.username = username;
     user.password = password;
     user.email = email;
     user.location = location;
-    if(req.files !== null)user.profile_picture = profile_picture.name;
     let userModel = new User(user); 
     await userModel.save();
     res.json(userModel);

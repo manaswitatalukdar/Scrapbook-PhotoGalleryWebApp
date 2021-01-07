@@ -24,6 +24,7 @@ const LoginForm = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [loginStatus, setLoginStatus] = useState('');
+  const [hidden, setHidden] = useState(true);
   const history = useHistory();
 
   const login=()=>{
@@ -41,6 +42,10 @@ const LoginForm = () => {
         
     });
   };
+
+  const handlePassword=()=>{
+    setHidden(!hidden);
+  }
 
   return (
     <FormBody>
@@ -61,7 +66,7 @@ const LoginForm = () => {
             <input type="name" name="name" placeholder="Enter your Username" onChange={(e)=>{setUsername(e.target.value)}}/>
             <br/>
             <br/>
-            <svg 
+            <span style={{float: `left`, marginLeft: `97px`}}><svg 
             height="23px"
             width="25px"
             aria-hidden="true" 
@@ -72,12 +77,17 @@ const LoginForm = () => {
             role="img" xmlns="http://www.w3.org/2000/svg"
              viewBox="0 0 448 512">
               <path fill="currentColor" d="M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48zM264 408c0 22.1-17.9 40-40 40s-40-17.9-40-40v-48c0-22.1 17.9-40 40-40s40 17.9 40 40v48z"></path></svg>
-            <input
-              type="password"
+            </span>
+              <input
+              type={hidden? "password":"text"}
               name="password"
               placeholder="Enter your password"
               onChange={(e)=>{setPassword(e.target.value)}}
+              style={{float: `left`}}
             />
+            <span onClick={handlePassword} style={{float: `left`, marginLeft: `5px`}}>
+            <svg height="20px" width="20px" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="eye" className="svg-inline--fa fa-eye fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="rgba(29,29,29,0.8)" d="M572.52 241.4C518.29 135.59 410.93 64 288 64S57.68 135.64 3.48 241.41a32.35 32.35 0 0 0 0 29.19C57.71 376.41 165.07 448 288 448s230.32-71.64 284.52-177.41a32.35 32.35 0 0 0 0-29.19zM288 400a144 144 0 1 1 144-144 143.93 143.93 0 0 1-144 144zm0-240a95.31 95.31 0 0 0-25.31 3.79 47.85 47.85 0 0 1-66.9 66.9A95.78 95.78 0 1 0 288 160z"></path></svg>
+              </span>
             <br/><br/><br/>
             <button type="submit"  className="submitBtnLog" onClick={login}>
               Login

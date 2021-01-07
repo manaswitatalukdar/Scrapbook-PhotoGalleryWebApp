@@ -75,7 +75,7 @@ class Users extends Component {
             height="150px"
             width="400px"
           >
-            <title>users</title>
+           
             <path
               className="users-svg1"
               d="M160.65,164.49h10.71v69.78q0,12.42.44,15.48a26.92,26.92,0,0,0,3.71,11.43,22.3,22.3,0,0,0,9,7.7A26.42,26.42,0,0,0,196.65,272a22.52,22.52,0,0,0,10.2-2.44,23,23,0,0,0,8.16-6.76,28.37,28.37,0,0,0,4.81-10.45q1.1-4.4,1.09-18.07V164.49h10.72v69.78q0,15.48-2.81,25a34.09,34.09,0,0,1-11.22,16.62A30.63,30.63,0,0,1,197.23,283q-13,0-22.23-6.68a32,32,0,0,1-12.38-17.68q-2-6.76-2-24.36Z"
@@ -140,7 +140,7 @@ class Users extends Component {
               height="300px"
               width="400px"
             >
-              <title>user</title>
+              
               <rect className="user1" x="0" y="713" width="532" height="5" />
               <path
                 className="user11"
@@ -296,7 +296,7 @@ class Users extends Component {
           height="400px"
           width="600px"
         >
-          <title>find_user </title>
+         
           <path
             className="cls-user1"
             d="M156.24,410.83c-1.12-1.67-2.22-3.37-3.28-5.07l1.7-1.06c1,1.69,2.13,3.37,3.24,5Z"

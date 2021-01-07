@@ -90,16 +90,26 @@ button:focus {
 
 .portfolio {
   font-size: 14px;
-  min-height: 600px;
-  background-image: url(images/background9.png);
+  min-height: 1050px;
+  background-image: url(images/background12.png);
   background-position: center;
   background-size: cover;
+  padding: 100px 300px;
+}
+
+.profileCard {
+  height: 400px;
+  max-width: 800px;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
 }
 
 .information {
-  float: right;
-  margin-top: 100px;
-  margin-right: 370px;
+  text-align: right;
+  float: left;
+  margin-top: 80px;
+  margin-left: 140px;
 }
 
 .row {
@@ -516,18 +526,18 @@ input:focus {
   font-size: 25px;
   color: floralwhite;
   padding-left: 300px;
-  padding-top: 200px;
+  padding-top: 150px;
   animation: animate1 4s;
 }
 
 @keyframes animate1 {
   from {
     opacity: 0;
-    padding-top: 300px;
+    padding-top: 250px;
   }
   to {
     opacity: 1;
-    padding-top: 200px;
+    padding-top: 150px;
   }
 }
 

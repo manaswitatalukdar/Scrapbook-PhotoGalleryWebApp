@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 
 const user = new mongoose.Schema({
     username:{
@@ -18,8 +19,20 @@ const user = new mongoose.Schema({
     profile_picture:
     {
        type: String,
+       default: ''
     }
     
+})
+
+user.pre('save', async function (next){
+    try {
+        const salt = await bcrypt.genSalt(10);
+        const hashedPassword = await bcrypt.hash(this.password, salt);
+        this.password = hashedPassword;
+        next();
+    } catch (error) {
+        next(error);
+    }
 })
 
 

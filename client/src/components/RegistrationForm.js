@@ -30,6 +30,8 @@ const RegistrationForm = () => {
   const [errormail, setErrormail] = useState('');
   const [errorlocation, setErrorlocation] = useState('');
   const [message, setMessage] = useState(' ');
+  const [hidden, setHidden] = useState(true);
+  const [status, setStatus] = useState('Show Password');
   const history = useHistory();
   const [img, setImg] = useState({});
 
@@ -37,6 +39,14 @@ const RegistrationForm = () => {
     console.log(event.target.files[0]);
     setImg(event.target.files[0]);
   };
+
+  const handleStatus=()=>{
+    if(hidden){
+      setStatus('Hide Password');
+    }
+    else setStatus('Show Password');
+    setHidden(!hidden);
+  }
 
 
   const register=()=>{
@@ -74,6 +84,7 @@ const RegistrationForm = () => {
    
   };
 
+  
   return (
     <div style={{backgroundImage: `url(${background})`, backgroundPosition: `center`, backgroundSize: `cover`, paddingTop: `20px`, paddingBottom: `100px`}}>
 <FormBody>
@@ -99,25 +110,6 @@ const RegistrationForm = () => {
     
             <br/>
             <input
-              type="password" id="password"
-              name="password" placeholder="Password"
-              onChange={(e)=>{setPasswordReg(e.target.value)} }
-              style={{width:`300px`,color: `white`, backgroundColor: `rgba(0,0,0,0)`,  border: `none`,borderBottom: `solid rgba(255, 255, 255, 0.5) 1px`, outline: `none`}}
-            />
-             <svg 
-            height="23px"
-            width="25px"
-            aria-hidden="true" 
-            focusable="false" 
-            data-prefix="fas" 
-            data-icon="unlock-alt" 
-            className="svg-inline--fa fa-unlock-alt fa-w-14" 
-            role="img" xmlns="http://www.w3.org/2000/svg"
-             viewBox="0 0 448 512">
-              <path fill="rgba(255,255,255,0.8)" d="M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48zM264 408c0 22.1-17.9 40-40 40s-40-17.9-40-40v-48c0-22.1 17.9-40 40-40s40 17.9 40 40v48z"></path></svg>
-            <p style={{color: `tomato`, fontSize: `12px`}}>{errorpwd}</p>
-            <br/>
-            <input
               type="email" id="email"
               name="email" placeholder="Email"
               onChange={(e)=>{setEmailReg(e.target.value)}}
@@ -138,6 +130,26 @@ const RegistrationForm = () => {
             width="25px" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="map-marker-alt" className="svg-inline--fa fa-map-marker-alt fa-w-12" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="rgba(255,255,255,0.8)" d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z"></path></svg>
             <p style={{color: `tomato`, fontSize: `12px`}}>{errorlocation}</p>
            <br/>
+            <input
+              type={hidden? "password":"text"} id="password"
+              name="password" placeholder="Password"
+              onChange={(e)=>{setPasswordReg(e.target.value)} }
+              style={{width:`300px`,color: `white`, backgroundColor: `rgba(0,0,0,0)`,  border: `none`,borderBottom: `solid rgba(255, 255, 255, 0.5) 1px`, outline: `none`}}
+            />
+             <svg 
+            height="23px"
+            width="25px"
+            aria-hidden="true" 
+            focusable="false" 
+            data-prefix="fas" 
+            data-icon="unlock-alt" 
+            className="svg-inline--fa fa-unlock-alt fa-w-14" 
+            role="img" xmlns="http://www.w3.org/2000/svg"
+             viewBox="0 0 448 512">
+              <path fill="rgba(255,255,255,0.8)" d="M400 256H152V152.9c0-39.6 31.7-72.5 71.3-72.9 40-.4 72.7 32.1 72.7 72v16c0 13.3 10.7 24 24 24h32c13.3 0 24-10.7 24-24v-16C376 68 307.5-.3 223.5 0 139.5.3 72 69.5 72 153.5V256H48c-26.5 0-48 21.5-48 48v160c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48V304c0-26.5-21.5-48-48-48zM264 408c0 22.1-17.9 40-40 40s-40-17.9-40-40v-48c0-22.1 17.9-40 40-40s40 17.9 40 40v48z"></path></svg>
+            <button style={{color: `#b09ea8`, fontSize: `12px`, marginTop: `5px`, backgroundColor: `rgba(0,0,0,0)`, border: `none`, outline: `none`}} onClick={handleStatus}>{status}</button>
+            <p style={{color: `tomato`, fontSize: `12px`}}>{errorpwd}</p>
+           
              <form encType="multipart/form-data">
              <svg height="23px"
             width="25px" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="camera" className="svg-inline--fa fa-camera fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="rgba(255,255,255,0.8)" d="M512 144v288c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V144c0-26.5 21.5-48 48-48h88l12.3-32.9c7-18.7 24.9-31.1 44.9-31.1h125.5c20 0 37.9 12.4 44.9 31.1L376 96h88c26.5 0 48 21.5 48 48zM376 288c0-66.2-53.8-120-120-120s-120 53.8-120 120 53.8 120 120 120 120-53.8 120-120zm-32 0c0 48.5-39.5 88-88 88s-88-39.5-88-88 39.5-88 88-88 88 39.5 88 88z"></path></svg>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
+import ScrollAnimation from "react-animate-on-scroll";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Axios from 'axios';
 import img from '../images/no-photo.jpg'
@@ -13,17 +14,10 @@ const ProtectedRoute = (props) => {
   const location = props.location;
   if(props.loggedIn === 'logout') {
     return (<React.Fragment><div className="profileinfo">
-    <div className="portfolio"> 
-    <img
-            src={image}
-            style={{
-              height: `400px`,
-              width: `380px`,
-              border: `solid white 7px`,
-              marginTop: `95px`,
-              marginLeft: `145px`,
-            }}/>
-            <div className="information">
+    <div className="portfolio">
+      <div className="profileCard">
+      <div className="information">
+        
               <h1><strong>About</strong></h1>
               <br/><br/>
               <p style={{fontSize: `16px`}}>
@@ -32,8 +26,24 @@ const ProtectedRoute = (props) => {
                Location: {location} <br/>
               </p>  
             </div>
-         
+      <img
+            src={image}
+            style={{
+              height: `400px`,
+              width: `380px`,
+             borderTopRightRadius: `5px`,
+             borderBottomRightRadius: `5px`,
+             float: `right`,
+             objectFit: `cover`
+            }}/>
+        </div> 
+        <ScrollAnimation
+            duration={3}
+            animateIn="bounceInLeft">
+              <div style={{fontFamily: `'Abril Fatface', cursive`, fontSize: `80px`, marginTop: `200px`, marginLeft: `200px`}}>studio</div>
+              </ScrollAnimation>
     </div>
+   
     </div></React.Fragment>)
   }
     return (<React.Fragment><p className="profilestatus">{props.username}</p></React.Fragment>)
