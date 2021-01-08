@@ -8,6 +8,25 @@ import img from '../images/no-photo.jpg'
 const ProtectedRoute = (props) => {
   const username = props.username;
   let image = props.image;
+  const [images, setImages] = useState({});
+  const [msg, setMsg] = useState('');
+
+  const handleUpload=(event)=>{
+    console.log(event.target.files[0]);
+    setImages(event.target.files[0]);
+  };
+
+  const upload=()=>{
+    const form = new FormData();
+    form.append('image', images);
+    Axios.post('http://localhost:5000/upload',form).then((response)=>{
+      if(response.status === 200) {
+        setMsg('Image uploaded successfully!')
+      }
+    })
+  }
+
+
   if(image === '') image = img;
   else image = "http://localhost:5000/"+image;
   const email = props.email;
@@ -42,6 +61,11 @@ const ProtectedRoute = (props) => {
             animateIn="bounceInLeft">
               <div style={{fontFamily: `'Abril Fatface', cursive`, fontSize: `80px`, marginTop: `200px`, marginLeft: `200px`}}>studio</div>
               </ScrollAnimation>
+              <div>
+              <input type="file" name="file" onChange={handleUpload}/>
+              <span onClick={upload}>upload</span>
+              <p>{msg}</p>
+              </div>
     </div>
    
     </div></React.Fragment>)

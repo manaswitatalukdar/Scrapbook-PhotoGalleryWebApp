@@ -20,7 +20,8 @@ const user = new mongoose.Schema({
     {
        type: String,
        default: ''
-    }
+    },
+    images:      [String]
     
 })
 

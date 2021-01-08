@@ -55,6 +55,19 @@ app.get('/logout', async(req,res)=>{
   return res.status(200).send();
 });
 
+app.post('/upload', async(req,res)=>{
+  const username = req.session.user.username;
+  const image = req.files.image;
+  image.mv('public/'+image.name, function(err){
+    if(err){
+        console.group('err');
+        res.json({"status": "File not uploaded"});
+    }
+});
+  await User.findOneAndUpdate({username: username}, {$push:{images: image.name}});
+  res.status(200).send();
+})
+
 const Port = process.env.Port || 5000;
 
 app.listen(Port , () => console.log('Server started'));

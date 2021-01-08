@@ -77,7 +77,7 @@ class Featured extends Component {
                 width="500px"
                 style={{ float: `left` }}
               >
-                <title>photographer</title>
+                
                 <polygon
                   className="cls-photographer1"
                   points="444.45 634.88 437.17 634.88 383.92 299.95 377.09 634.88 369.36 634.88 360.71 300.51 308.82 634.88 300.63 634.88 335.9 290.63 337.05 279.44 406.23 270.01 408.38 290.63 444.45 634.88"
