@@ -21,7 +21,7 @@ const ProtectedRoute = (props) => {
     form.append('image', images);
     Axios.post('http://localhost:5000/upload',form).then((response)=>{
       if(response.status === 200) {
-        setMsg('Image uploaded successfully!')
+        setMsg('Image uploaded successfully!');
       }
     })
   }
@@ -31,6 +31,8 @@ const ProtectedRoute = (props) => {
   else image = "http://localhost:5000/"+image;
   const email = props.email;
   const location = props.location;
+  const photos = props.photos;
+
   if(props.loggedIn === 'logout') {
     return (<React.Fragment><div className="profileinfo">
     <div className="portfolio">
@@ -56,18 +58,44 @@ const ProtectedRoute = (props) => {
              objectFit: `cover`
             }}/>
         </div> 
-        <ScrollAnimation
-            duration={3}
-            animateIn="bounceInLeft">
-              <div style={{fontFamily: `'Abril Fatface', cursive`, fontSize: `80px`, marginTop: `200px`, marginLeft: `200px`}}>studio</div>
-              </ScrollAnimation>
-              <div>
+        <div style={{marginLeft: `300px`,marginTop: `200px`}}>
               <input type="file" name="file" onChange={handleUpload}/>
               <span onClick={upload}>upload</span>
               <p>{msg}</p>
               </div>
+        
+        <ScrollAnimation
+            duration={3}
+            animateIn="bounceInLeft">
+              <div style={{fontFamily: `'Abril Fatface', cursive`, fontSize: `80px`, marginTop: `150px`, marginLeft: `500px`}}>studio</div>
+              </ScrollAnimation>
+           
+            
+             
     </div>
-   
+    <ul className="image-viewer">
+          {photos.map((photo) => (
+            <li
+              key={photo}
+              style={{
+                listStyle: `none`,
+                transition: `0.7s ease-in-out`,
+              }}
+              
+            >
+              <img
+                src={"http://localhost:5000/"+photo}
+                style={{
+                  height: `400px`,
+                  width: `400px`,
+                  marginTop: `8px`,
+                  objectFit: `cover`
+                }}
+              />
+            </li>
+          ))}
+        </ul>
+   <div style={{minHeight: `100px`}}></div>
     </div></React.Fragment>)
   }
     return (<React.Fragment><p className="profilestatus">{props.username}</p></React.Fragment>)
@@ -80,6 +108,7 @@ const Profile = () => {
   const [email, setEmail] = useState('');
   const [location, setLocation] = useState('');
   const [image, setImage] = useState({});
+  const [photos, setPhotos] = useState([]);
   Axios.defaults.withCredentials= true;
 
   const profile=()=>{
@@ -99,6 +128,7 @@ const Profile = () => {
         setEmail(response.data.email);
         setLocation(response.data.location);
         setImage(response.data.profile_picture);
+        setPhotos(response.data.images);
       }
     });
   }, [loggedIn]);
@@ -109,7 +139,7 @@ const Profile = () => {
           <span className="loginButton">{loggedIn}</span>
         </Link>
         
-        <ProtectedRoute loggedIn={loggedIn} username={username} image={image} location={location} email={email} />
+        <ProtectedRoute loggedIn={loggedIn} username={username} image={image} location={location} email={email} photos={photos} />
     </div>
   )};
 

@@ -94,7 +94,7 @@ button:focus {
   background-image: url(images/background12.png);
   background-position: center;
   background-size: cover;
-  padding: 100px 300px;
+  padding-top: 100px;
 }
 
 .profileCard {
@@ -103,6 +103,7 @@ button:focus {
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
+  margin-left: 300px;
 }
 
 .information {
@@ -917,7 +918,7 @@ input:focus {
 .image-viewer {
   margin: 0;
   padding-top: 40px;
-  padding-right: 50px;
+  padding-right: 40px;
   column-count: 3;
 }
 
