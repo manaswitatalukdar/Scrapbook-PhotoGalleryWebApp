@@ -10,6 +10,7 @@ const ProtectedRoute = (props) => {
   let image = props.image;
   const [images, setImages] = useState({});
   const [msg, setMsg] = useState('');
+  const [uploaded, setUploaded] = useState(false);
 
   const handleUpload=(event)=>{
     console.log(event.target.files[0]);
@@ -19,9 +20,14 @@ const ProtectedRoute = (props) => {
   const upload=()=>{
     const form = new FormData();
     form.append('image', images);
-    Axios.post('http://localhost:5000/upload',form).then((response)=>{
+    Axios.post('http://localhost:5000/upload',form, {
+      onUploadProgress: progressEvent => {
+        console.log('Upload Progress: ' + Math.round(progressEvent.loaded/progressEvent.total *100) + '%')
+      }
+    }).then((response)=>{
       if(response.status === 200) {
         setMsg('Image uploaded successfully!');
+        setUploaded(true);
       }
     })
   }
@@ -60,12 +66,12 @@ const ProtectedRoute = (props) => {
         </div> 
         <div style={{marginLeft: `300px`,marginTop: `200px`}}>
               <input type="file" name="file" onChange={handleUpload}/>
-              <span onClick={upload}>upload</span>
+              <button onClick={upload}>upload</button>
               <p>{msg}</p>
               </div>
         
         <ScrollAnimation
-            duration={3}
+            duration={2}
             animateIn="bounceInLeft">
               <div style={{fontFamily: `'Abril Fatface', cursive`, fontSize: `80px`, marginTop: `150px`, marginLeft: `500px`}}>studio</div>
               </ScrollAnimation>
@@ -95,6 +101,16 @@ const ProtectedRoute = (props) => {
             </li>
           ))}
         </ul>
+        {uploaded ? <img
+                src={"http://localhost:5000/"+ images.name}
+                style={{
+                  height: `400px`,
+                  width: `400px`,
+                  marginTop: `8px`,
+                  marginLeft: `40px`,
+                  objectFit: `cover`
+                }}
+              />: null}
    <div style={{minHeight: `100px`}}></div>
     </div></React.Fragment>)
   }
