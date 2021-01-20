@@ -974,3 +974,32 @@ input:focus {
 .cls-photographer8 {
   opacity: 0.05;
 }
+
+.uploading {
+  animation: load 5s infinite;
+}
+
+@keyframes load {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 371px;
+  }
+}
+
+.bar {
+  animation: bar 4s;
+}
+
+@keyframes bar {
+  0% {
+    width: 0px;
+  }
+  50% {
+    width: 40px;
+  }
+  100% {
+    width: 0px;
+  }
+}
