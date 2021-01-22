@@ -42,7 +42,7 @@ button:focus {
 .filler {
   margin-top: 600px;
   padding-left: 100px;
-  height: 600px;
+  height: 640px;
   background-image: url(images/background7.png);
   background-position: center;
   background-size: cover;
@@ -911,8 +911,8 @@ input:focus {
 .topic {
   position: absolute;
   font-family: "Noto Sans JP", sans-serif;
-  top: 2100px;
-  right: 300px;
+  top: 2200px;
+  right: 0px;
 }
 
 .image-viewer {
@@ -920,6 +920,13 @@ input:focus {
   padding-top: 40px;
   padding-right: 40px;
   column-count: 3;
+}
+
+.image-viewer1 {
+  margin: 0;
+  padding-top: 30px;
+  padding-right: 30px;
+  column-count: 5;
 }
 
 .image:hover {
@@ -1002,4 +1009,24 @@ input:focus {
   100% {
     width: 0px;
   }
+}
+
+.upload {
+  padding: 0px;
+  text-align: center;
+  list-style-type: none;
+  color: white;
+  font-size: 16px;
+  font-family: "Righteous", cursive;
+  letter-spacing: 0.4px;
+}
+
+.list {
+  border-bottom: solid 2px rgba(255, 255, 255, 0.5);
+  padding: 10px;
+}
+
+.list:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: teal;
 }

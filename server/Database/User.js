@@ -21,7 +21,13 @@ const user = new mongoose.Schema({
        type: String,
        default: ''
     },
-    images:      [String]
+    images:      [String],
+    featuredImages: [
+        {
+            name: String,
+            username: String
+        }
+    ]
     
 })
 

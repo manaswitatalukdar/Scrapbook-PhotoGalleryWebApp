@@ -8,7 +8,7 @@ class Featured extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      photos: [],
+      users: [],
       isLoaded: false,
     };
   }
@@ -16,18 +16,19 @@ class Featured extends Component {
   componentDidMount() {
     axios
       .get(
-        "https://pixabay.com/api/?key=17961738-af6ebddc270db05f04e2c1ffc&q=flowers&image_type=photo&pretty=true"
+        "http://localhost:5000/userList"
       )
-      .then((result) => {
+      .then((response) => {
+        console.log(response.data);
         this.setState({
           isLoaded: true,
-          photos: result.data.hits,
+          users: response.data,
         });
       });
   }
 
   render() {
-    let photos = this.state.photos;
+    let users = this.state.users;
     return (
       <div className="background">
         <div className="featured">
@@ -422,9 +423,10 @@ class Featured extends Component {
         </div>
 
         <ul className="image-viewer">
-          {photos.map((photo) => (
-            <li
-              key={photo.id}
+          {users.map((user) => (
+           <div key={user.id}>
+             {user.featuredImages.map((image)=>(<li
+              key={image.id}
               style={{
                 listStyle: `none`,
                 transition: `0.7s ease-in-out`,
@@ -432,24 +434,27 @@ class Featured extends Component {
               className="image"
             >
               <img
-                src={photo.largeImageURL}
+                src={"http://localhost:5000/"+image.name}
                 style={{
                   height: `300px`,
                   width: `420px`,
                   marginTop: `8px`,
                   transition: `0.7s ease-in-out`,
                   position: `relative`,
+                  objectFit: `cover`
                 }}
               />
               <div className="info">
                 <a className="fa fa-user"></a>
-                {photo.user}
-                <a className="fa fa-heart"></a>
-                {photo.likes}
+                {image.username}
+                
               </div>
-            </li>
+            </li>))}
+            
+            </div>
           ))}
         </ul>
+        <div style={{minHeight: `100px`}}></div>
       </div>
     );
   }

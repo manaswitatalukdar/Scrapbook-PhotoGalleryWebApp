@@ -29,7 +29,8 @@ app.use(session({
   resave: false, 
   saveUninitialized: true, 
   cookie:{
-      expires: 60*60*24
+      maxAge: 1000 * 60 * 60 * 24,
+      sameSite: true
 }}))
 
 app.use('/register', require('./Routes/Register'));
@@ -65,6 +66,19 @@ app.post('/upload', async(req,res)=>{
     }
 });
   await User.findOneAndUpdate({username: username}, {$push:{images: image.name}});
+  res.status(200).send();
+})
+
+app.post('/feature', async(req,res)=>{
+  const username = req.session.user.username;
+  const image = req.files.image;
+  image.mv('public/'+image.name, function(err){
+    if(err){
+        console.group('err');
+        res.json({"status": "File not uploaded"});
+    }
+});
+  await User.findOneAndUpdate({username: username}, {$push:{featuredImages: {name:image.name, username: username}}});
   res.status(200).send();
 })
 

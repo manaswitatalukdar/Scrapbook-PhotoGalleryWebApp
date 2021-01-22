@@ -14,11 +14,43 @@ const topic = [
 
 const Topic = (props) => {
   const user = props.location.state.value;
+  console.log(user);
   const tab = props.location.pathname.substring(15 + user.username.length);
+
   if (user === undefined) return null;
   return (
     <div className="topic">
-      <h2>{tab}</h2>
+      
+      {tab === 'overview' ? 
+      <div><div style={{ transform: `translate(-200px, -180px)`,fontSize: `80px`, fontFamily: `'Great Vibes', cursive`}}>{tab}</div></div>
+      :
+      <div >
+        <div style={{ position: `absolute`,transform: `translate(900px, -180px)`,fontSize: `80px`, fontFamily: `'Great Vibes', cursive`}}>{tab}</div>
+         <ul className="image-viewer">
+          {user.featuredImages.map((ft) => (
+            <li
+              key={ft.name}
+              style={{
+                listStyle: `none`,
+                transition: `0.7s ease-in-out`,
+              }}
+              >
+            
+              <img
+                src={"http://localhost:5000/"+ft.name}
+                style={{
+                  height: `400px`,
+                  width: `400px`,
+                  marginTop: `8px`,
+                  objectFit: `cover`
+                }}
+              />
+              
+            </li>
+          ))}
+        </ul>
+      </div>
+      }
     </div>
   );
 };
